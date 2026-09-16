@@ -1,0 +1,16 @@
+# Repozytorium jest budowane na runnerze macOS, wiec wszystkie pliki tekstowe
+# musza trafiac tam z koncami linii LF - inaczej skrypty shell w CI sie wysypia.
+* text=auto eol=lf
+
+*.swift text eol=lf
+*.plist text eol=lf
+*.yml text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.pbxproj text eol=lf
+*.xcscheme text eol=lf
+*.xcworkspacedata text eol=lf
+
+*.png binary
+*.jpg binary
+*.ipa binary
