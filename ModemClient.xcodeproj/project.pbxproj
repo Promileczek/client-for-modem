@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		478EB6E37FF46FEB3FBFFD9D /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C2C46C7CA405B82BA8EB7 /* APIModels.swift */; };
+		9CF9686CDEAC088B424D3FF9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74154E04469FE21C57FC8ED6 /* Profile.swift */; };
+		813D45A22CEA571E54104E5A /* ModemClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765752D5F5B583F3B5FB3E4 /* ModemClientApp.swift */; };
+		98C4213601301EAF765AE8EA /* ModemAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50788AAB8619E68D93312DC3 /* ModemAPI.swift */; };
+		2E89EA376553A03F6F761F0C /* ModemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5A2E7D99CABC13BC47DFE /* ModemViewModel.swift */; };
+		53CF2A44E1E55B9A4CB29F2F /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15013BBCCB129538B2F21D /* ProfileStore.swift */; };
+		D07D4A0E6D0603286D73139C /* ComposeSMSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29229CEFA0CD0817D03E8577 /* ComposeSMSView.swift */; };
+		21733EB9380E4879A8BCDFB3 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2656E32CD4B7DAB746E4E47 /* DashboardView.swift */; };
+		BD410D718A895DD86360C304 /* DialerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E56F516DCE99111B651CA /* DialerView.swift */; };
+		5AB0D88E310F99B54A276EE5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7E3D7575E936B379524ED /* EmptyStateView.swift */; };
+		F5C7221F684F4B7D5A001D1A /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EFFB77335CE0B25E6BB2F0 /* ProfileEditorView.swift */; };
+		98DFB9B18D4B8518CD865FE2 /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A78EAB426523D905B49E0 /* ProfileListView.swift */; };
+		9749088CC0DCE5471874497B /* SMSListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A1552363AC654F210F4B67 /* SMSListView.swift */; };
+		4ED1CC380F7F7530E9BBF84D /* USSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C6D58CE4D0B10E1824D265 /* USSDView.swift */; };
+		BB97E202C0942CE21B417686 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B873D544F2AF1BE79BAFF /* WelcomeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		284C2C46C7CA405B82BA8EB7 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIModels.swift"; sourceTree = "<group>"; };
+		74154E04469FE21C57FC8ED6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile.swift"; sourceTree = "<group>"; };
+		7765752D5F5B583F3B5FB3E4 /* ModemClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModemClientApp.swift"; sourceTree = "<group>"; };
+		50788AAB8619E68D93312DC3 /* ModemAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModemAPI.swift"; sourceTree = "<group>"; };
+		52E5A2E7D99CABC13BC47DFE /* ModemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModemViewModel.swift"; sourceTree = "<group>"; };
+		6C15013BBCCB129538B2F21D /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileStore.swift"; sourceTree = "<group>"; };
+		29229CEFA0CD0817D03E8577 /* ComposeSMSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComposeSMSView.swift"; sourceTree = "<group>"; };
+		D2656E32CD4B7DAB746E4E47 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView.swift"; sourceTree = "<group>"; };
+		140E56F516DCE99111B651CA /* DialerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DialerView.swift"; sourceTree = "<group>"; };
+		2AB7E3D7575E936B379524ED /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyStateView.swift"; sourceTree = "<group>"; };
+		E3EFFB77335CE0B25E6BB2F0 /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileEditorView.swift"; sourceTree = "<group>"; };
+		888A78EAB426523D905B49E0 /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileListView.swift"; sourceTree = "<group>"; };
+		74A1552363AC654F210F4B67 /* SMSListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMSListView.swift"; sourceTree = "<group>"; };
+		88C6D58CE4D0B10E1824D265 /* USSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "USSDView.swift"; sourceTree = "<group>"; };
+		326B873D544F2AF1BE79BAFF /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeView.swift"; sourceTree = "<group>"; };
+		3FB6BD64A997C517BC11CC6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38A007151ABE87CC01A5B6E9 /* ModemClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ModemClient.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF5BDB0BEAFE176F9629192A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF657CFE8769AAE6C0570C29 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				284C2C46C7CA405B82BA8EB7 /* APIModels.swift */,
+				74154E04469FE21C57FC8ED6 /* Profile.swift */,
+			);
+			path = "Models";
+			sourceTree = "<group>";
+		};
+		6EE67047A4B2648DDBB08231 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50788AAB8619E68D93312DC3 /* ModemAPI.swift */,
+				52E5A2E7D99CABC13BC47DFE /* ModemViewModel.swift */,
+				6C15013BBCCB129538B2F21D /* ProfileStore.swift */,
+			);
+			path = "Services";
+			sourceTree = "<group>";
+		};
+		58492F208780FA5EF3807E8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				29229CEFA0CD0817D03E8577 /* ComposeSMSView.swift */,
+				D2656E32CD4B7DAB746E4E47 /* DashboardView.swift */,
+				140E56F516DCE99111B651CA /* DialerView.swift */,
+				2AB7E3D7575E936B379524ED /* EmptyStateView.swift */,
+				E3EFFB77335CE0B25E6BB2F0 /* ProfileEditorView.swift */,
+				888A78EAB426523D905B49E0 /* ProfileListView.swift */,
+				74A1552363AC654F210F4B67 /* SMSListView.swift */,
+				88C6D58CE4D0B10E1824D265 /* USSDView.swift */,
+				326B873D544F2AF1BE79BAFF /* WelcomeView.swift */,
+			);
+			path = "Views";
+			sourceTree = "<group>";
+		};
+		CF8D0BD4B75E8C2C174692A5 /* ModemClient */ = {
+			isa = PBXGroup;
+			children = (
+				7765752D5F5B583F3B5FB3E4 /* ModemClientApp.swift */,
+				BF657CFE8769AAE6C0570C29 /* Models */,
+				6EE67047A4B2648DDBB08231 /* Services */,
+				58492F208780FA5EF3807E8F /* Views */,
+				3FB6BD64A997C517BC11CC6E /* Info.plist */,
+			);
+			path = "ModemClient";
+			sourceTree = "<group>";
+		};
+		00C45FD35CB0F9C5F764F070 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38A007151ABE87CC01A5B6E9 /* ModemClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADCF10F76EBF2A74473E9DC4 = {
+			isa = PBXGroup;
+			children = (
+				CF8D0BD4B75E8C2C174692A5 /* ModemClient */,
+				00C45FD35CB0F9C5F764F070 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E8A3AD980EC179856012B7E /* ModemClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C4794A3DC1EEE454665681A /* Build configuration list for PBXNativeTarget "ModemClient" */;
+			buildPhases = (
+				1CDF2F71A52B082132B04DFF /* Sources */,
+				CF5BDB0BEAFE176F9629192A /* Frameworks */,
+				C02F1309AF4906C92F1EAD44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ModemClient";
+			productName = "ModemClient";
+			productReference = 38A007151ABE87CC01A5B6E9 /* ModemClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0E8A3AD980EC179856012B7E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 49194880C05874E51231967E /* Build configuration list for PBXProject "ModemClient" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADCF10F76EBF2A74473E9DC4;
+			productRefGroup = 00C45FD35CB0F9C5F764F070 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E8A3AD980EC179856012B7E /* ModemClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C02F1309AF4906C92F1EAD44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CDF2F71A52B082132B04DFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				478EB6E37FF46FEB3FBFFD9D /* APIModels.swift in Sources */,
+				9CF9686CDEAC088B424D3FF9 /* Profile.swift in Sources */,
+				813D45A22CEA571E54104E5A /* ModemClientApp.swift in Sources */,
+				98C4213601301EAF765AE8EA /* ModemAPI.swift in Sources */,
+				2E89EA376553A03F6F761F0C /* ModemViewModel.swift in Sources */,
+				53CF2A44E1E55B9A4CB29F2F /* ProfileStore.swift in Sources */,
+				D07D4A0E6D0603286D73139C /* ComposeSMSView.swift in Sources */,
+				21733EB9380E4879A8BCDFB3 /* DashboardView.swift in Sources */,
+				BD410D718A895DD86360C304 /* DialerView.swift in Sources */,
+				5AB0D88E310F99B54A276EE5 /* EmptyStateView.swift in Sources */,
+				F5C7221F684F4B7D5A001D1A /* ProfileEditorView.swift in Sources */,
+				98DFB9B18D4B8518CD865FE2 /* ProfileListView.swift in Sources */,
+				9749088CC0DCE5471874497B /* SMSListView.swift in Sources */,
+				4ED1CC380F7F7530E9BBF84D /* USSDView.swift in Sources */,
+				BB97E202C0942CE21B417686 /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A6553E4926F7C59EAF317BC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E553A4BEC07018005363858C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58A90D352B5CC9AC0BA5AB94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ModemClient/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.modemclient.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		2205FC9A8895DEB7010B6397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ModemClient/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.modemclient.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49194880C05874E51231967E /* Build configuration list for PBXProject "ModemClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6553E4926F7C59EAF317BC5 /* Debug */,
+				E553A4BEC07018005363858C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C4794A3DC1EEE454665681A /* Build configuration list for PBXNativeTarget "ModemClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58A90D352B5CC9AC0BA5AB94 /* Debug */,
+				2205FC9A8895DEB7010B6397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+}

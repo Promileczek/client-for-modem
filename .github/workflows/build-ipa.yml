@@ -1,0 +1,82 @@
+name: Build IPA
+
+# Buduje niepodpisany plik .ipa na runnerze macOS.
+# Wynik pobierasz z zakladki Actions -> wybrany przebieg -> Artifacts,
+# a nastepnie podpisujesz go AltStore/SideStore albo instalujesz na jailbreaku.
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:      # pozwala uruchomic build recznie przyciskiem
+
+jobs:
+  build:
+    name: Build unsigned IPA
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_15.4.app
+
+      - name: Show environment
+        run: |
+          xcodebuild -version
+          swift --version
+
+      # Projekt jest generowany skryptem, wiec odtwarzamy go tutaj.
+      # Dzieki temu wystarczy commitowac pliki .swift - projekt zawsze pasuje.
+      - name: Regenerate Xcode project
+        run: python3 tools/generate_xcodeproj.py
+
+      - name: Build (unsigned archive)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project ModemClient.xcodeproj \
+            -scheme ModemClient \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath "$RUNNER_TEMP/ModemClient.xcarchive" \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            ENABLE_BITCODE=NO \
+            archive
+
+      # Bez podpisu nie mozna uzyc -exportArchive, wiec skladamy .ipa recznie:
+      # .ipa to zwykly ZIP z katalogiem Payload/ zawierajacym .app
+      - name: Package IPA
+        run: |
+          set -e
+          ARCHIVE="$RUNNER_TEMP/ModemClient.xcarchive"
+          APP_PATH="$ARCHIVE/Products/Applications/ModemClient.app"
+
+          if [ ! -d "$APP_PATH" ]; then
+            echo "Nie znaleziono zbudowanej aplikacji w $APP_PATH"
+            ls -R "$ARCHIVE/Products" || true
+            exit 1
+          fi
+
+          mkdir -p "$RUNNER_TEMP/Payload"
+          cp -r "$APP_PATH" "$RUNNER_TEMP/Payload/"
+
+          # Usuwamy ewentualne pozostalosci podpisu - AltStore podpisze od nowa.
+          rm -rf "$RUNNER_TEMP/Payload/ModemClient.app/_CodeSignature"
+          rm -f "$RUNNER_TEMP/Payload/ModemClient.app/embedded.mobileprovision"
+
+          cd "$RUNNER_TEMP"
+          zip -qry ModemClient.ipa Payload
+          echo "Rozmiar pakietu:"
+          ls -lh ModemClient.ipa
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ModemClient-unsigned-ipa
+          path: ${{ runner.temp }}/ModemClient.ipa
+          retention-days: 30
+          if-no-files-found: error
