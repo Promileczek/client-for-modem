@@ -8,9 +8,9 @@ struct ProfileListView: View {
     @State private var showingNewProfile = false
     @State private var profileToDelete: ModemProfile?
 
+    /// Widok jest osadzony w NavigationStack z SettingsView, wiec nie tworzy wlasnego.
     var body: some View {
-        NavigationStack {
-            List {
+        List {
                 Section {
                     ForEach(profileStore.profiles) { profile in
                         ProfileRow(
@@ -46,6 +46,7 @@ struct ProfileListView: View {
             }
             .navigationTitle("Profile")
             .toolbar {
+                // Oba przyciski po prawej - po lewej jest przycisk powrotu.
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showingNewProfile = true
@@ -53,7 +54,7 @@ struct ProfileListView: View {
                         Image(systemName: "plus")
                     }
                 }
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .topBarTrailing) {
                     EditButton()
                 }
             }
@@ -79,7 +80,6 @@ struct ProfileListView: View {
                 }
                 Button("Anuluj", role: .cancel) { profileToDelete = nil }
             }
-        }
     }
 }
 

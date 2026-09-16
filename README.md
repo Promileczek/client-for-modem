@@ -10,9 +10,29 @@ Profile modemow dzialaja jak konta w Zoiperze - dodajesz adres serwera API zamia
 - **Telefon** - klawiatura numeryczna, dzwonienie, odbieranie, rozlaczanie, ukrywanie numeru (CLIR)
 - **USSD** - dowolne kody, szybkie skroty, sprawdzanie salda, historia
 - **Status** - sygnal, operator, rejestracja, SIM, IMEI, firmware, wlaczanie/wylaczanie transmisji danych
+- **Powiadomienia** - o nowych SMS-ach i polaczeniach przychodzacych, z licznikiem na ikonie
 
 Etap 1 nie obejmuje dzwieku rozmowy - audio idzie przez WebSocket modemu i zostalo
 zaplanowane jako etap 2.
+
+## Jak dzialaja powiadomienia
+
+API modemu nie potrafi samo nic zglosic, wiec aplikacja musi je odpytywac.
+Sa dwa tryby i warto znac roznice miedzy nimi:
+
+| Sytuacja | Co sie dzieje | Opoznienie |
+|---|---|---|
+| Aplikacja otwarta | sprawdza polaczenia co 5 s, SMS-y co 30 s | kilka sekund |
+| Aplikacja w tle lub zamknieta | odswiezanie w tle, termin wybiera iOS | od kilkunastu minut do kilku godzin |
+
+**Natychmiastowe powiadomienia przy zamknietej aplikacji sa niemozliwe bez
+platnego konta Apple Developer** (99 USD/rok). Wymagaja serwerow APNs, a te
+dzialaja tylko z podpisem od Apple - AltStore tego nie obejdzie. Dodatkowo
+serwer FastAPI musialby sam wysylac powiadomienia przez APNs.
+
+Zeby odswiezanie w tle w ogole ruszalo, w iOS musi byc wlaczone
+**Ustawienia -> Ogolne -> Odswiezanie aplikacji w tle**. Tryb niskiego zuzycia
+energii je wstrzymuje.
 
 ## Jak zbudowac plik .ipa (bez Maca)
 
@@ -56,6 +76,7 @@ a aplikacja nie wygasa.
 2. Wpisz nazwe, adres IP serwera API i port (domyslnie `7500`).
 3. Dotknij **Testuj polaczenie** - powinno pokazac operatora i sile sygnalu.
 4. Zapisz.
+5. Zgodz sie na powiadomienia, gdy iOS o nie zapyta.
 
 Telefon musi byc w tej samej sieci co serwer API modemu.
 

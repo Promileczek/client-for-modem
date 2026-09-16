@@ -52,5 +52,15 @@
 	<!-- iOS 14+ wymaga zgody na dostep do urzadzen w sieci lokalnej. -->
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Aplikacja laczy sie z serwerem API Twojego modemu GSM w sieci lokalnej.</string>
+	<!-- Odswiezanie w tle: sprawdzanie nowych SMS-ow gdy aplikacja jest zamknieta.
+	     Identyfikator musi byc zgodny z BackgroundRefreshService.taskIdentifier. -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.modemclient.app.refresh</string>
+	</array>
 </dict>
 </plist>

@@ -10,8 +10,10 @@
 		478EB6E37FF46FEB3FBFFD9D /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C2C46C7CA405B82BA8EB7 /* APIModels.swift */; };
 		9CF9686CDEAC088B424D3FF9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74154E04469FE21C57FC8ED6 /* Profile.swift */; };
 		813D45A22CEA571E54104E5A /* ModemClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765752D5F5B583F3B5FB3E4 /* ModemClientApp.swift */; };
+		E39DC4CC66E02A2824926B74 /* BackgroundRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E340113556057FED5F6C1E5 /* BackgroundRefreshService.swift */; };
 		98C4213601301EAF765AE8EA /* ModemAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50788AAB8619E68D93312DC3 /* ModemAPI.swift */; };
 		2E89EA376553A03F6F761F0C /* ModemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E5A2E7D99CABC13BC47DFE /* ModemViewModel.swift */; };
+		A9B9E99A6F3CEE1BB827581A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D41BC06CF8CDCE99EF3235 /* NotificationService.swift */; };
 		53CF2A44E1E55B9A4CB29F2F /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15013BBCCB129538B2F21D /* ProfileStore.swift */; };
 		D07D4A0E6D0603286D73139C /* ComposeSMSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29229CEFA0CD0817D03E8577 /* ComposeSMSView.swift */; };
 		21733EB9380E4879A8BCDFB3 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2656E32CD4B7DAB746E4E47 /* DashboardView.swift */; };
@@ -19,6 +21,7 @@
 		5AB0D88E310F99B54A276EE5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7E3D7575E936B379524ED /* EmptyStateView.swift */; };
 		F5C7221F684F4B7D5A001D1A /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EFFB77335CE0B25E6BB2F0 /* ProfileEditorView.swift */; };
 		98DFB9B18D4B8518CD865FE2 /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A78EAB426523D905B49E0 /* ProfileListView.swift */; };
+		6DCC02941A5BC2738A46D90B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE597B046599B4546D34412 /* SettingsView.swift */; };
 		9749088CC0DCE5471874497B /* SMSListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A1552363AC654F210F4B67 /* SMSListView.swift */; };
 		4ED1CC380F7F7530E9BBF84D /* USSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C6D58CE4D0B10E1824D265 /* USSDView.swift */; };
 		BB97E202C0942CE21B417686 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B873D544F2AF1BE79BAFF /* WelcomeView.swift */; };
@@ -28,8 +31,10 @@
 		284C2C46C7CA405B82BA8EB7 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIModels.swift"; sourceTree = "<group>"; };
 		74154E04469FE21C57FC8ED6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile.swift"; sourceTree = "<group>"; };
 		7765752D5F5B583F3B5FB3E4 /* ModemClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModemClientApp.swift"; sourceTree = "<group>"; };
+		9E340113556057FED5F6C1E5 /* BackgroundRefreshService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackgroundRefreshService.swift"; sourceTree = "<group>"; };
 		50788AAB8619E68D93312DC3 /* ModemAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModemAPI.swift"; sourceTree = "<group>"; };
 		52E5A2E7D99CABC13BC47DFE /* ModemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModemViewModel.swift"; sourceTree = "<group>"; };
+		50D41BC06CF8CDCE99EF3235 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationService.swift"; sourceTree = "<group>"; };
 		6C15013BBCCB129538B2F21D /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileStore.swift"; sourceTree = "<group>"; };
 		29229CEFA0CD0817D03E8577 /* ComposeSMSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComposeSMSView.swift"; sourceTree = "<group>"; };
 		D2656E32CD4B7DAB746E4E47 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView.swift"; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 		2AB7E3D7575E936B379524ED /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyStateView.swift"; sourceTree = "<group>"; };
 		E3EFFB77335CE0B25E6BB2F0 /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileEditorView.swift"; sourceTree = "<group>"; };
 		888A78EAB426523D905B49E0 /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileListView.swift"; sourceTree = "<group>"; };
+		ABE597B046599B4546D34412 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
 		74A1552363AC654F210F4B67 /* SMSListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMSListView.swift"; sourceTree = "<group>"; };
 		88C6D58CE4D0B10E1824D265 /* USSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "USSDView.swift"; sourceTree = "<group>"; };
 		326B873D544F2AF1BE79BAFF /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeView.swift"; sourceTree = "<group>"; };
@@ -67,8 +73,10 @@
 		6EE67047A4B2648DDBB08231 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9E340113556057FED5F6C1E5 /* BackgroundRefreshService.swift */,
 				50788AAB8619E68D93312DC3 /* ModemAPI.swift */,
 				52E5A2E7D99CABC13BC47DFE /* ModemViewModel.swift */,
+				50D41BC06CF8CDCE99EF3235 /* NotificationService.swift */,
 				6C15013BBCCB129538B2F21D /* ProfileStore.swift */,
 			);
 			path = "Services";
@@ -84,6 +92,7 @@
 				E3EFFB77335CE0B25E6BB2F0 /* ProfileEditorView.swift */,
 				888A78EAB426523D905B49E0 /* ProfileListView.swift */,
 				74A1552363AC654F210F4B67 /* SMSListView.swift */,
+				ABE597B046599B4546D34412 /* SettingsView.swift */,
 				88C6D58CE4D0B10E1824D265 /* USSDView.swift */,
 				326B873D544F2AF1BE79BAFF /* WelcomeView.swift */,
 			);
@@ -189,8 +198,10 @@
 				478EB6E37FF46FEB3FBFFD9D /* APIModels.swift in Sources */,
 				9CF9686CDEAC088B424D3FF9 /* Profile.swift in Sources */,
 				813D45A22CEA571E54104E5A /* ModemClientApp.swift in Sources */,
+				E39DC4CC66E02A2824926B74 /* BackgroundRefreshService.swift in Sources */,
 				98C4213601301EAF765AE8EA /* ModemAPI.swift in Sources */,
 				2E89EA376553A03F6F761F0C /* ModemViewModel.swift in Sources */,
+				A9B9E99A6F3CEE1BB827581A /* NotificationService.swift in Sources */,
 				53CF2A44E1E55B9A4CB29F2F /* ProfileStore.swift in Sources */,
 				D07D4A0E6D0603286D73139C /* ComposeSMSView.swift in Sources */,
 				21733EB9380E4879A8BCDFB3 /* DashboardView.swift in Sources */,
@@ -198,6 +209,7 @@
 				5AB0D88E310F99B54A276EE5 /* EmptyStateView.swift in Sources */,
 				F5C7221F684F4B7D5A001D1A /* ProfileEditorView.swift in Sources */,
 				98DFB9B18D4B8518CD865FE2 /* ProfileListView.swift in Sources */,
+				6DCC02941A5BC2738A46D90B /* SettingsView.swift in Sources */,
 				9749088CC0DCE5471874497B /* SMSListView.swift in Sources */,
 				4ED1CC380F7F7530E9BBF84D /* USSDView.swift in Sources */,
 				BB97E202C0942CE21B417686 /* WelcomeView.swift in Sources */,

@@ -8,8 +8,13 @@ final class ProfileStore: ObservableObject {
     @Published private(set) var profiles: [ModemProfile] = []
     @Published var selectedProfileID: UUID?
 
-    private let profilesKey = "modem.profiles.v1"
-    private let selectedKey = "modem.selectedProfile.v1"
+    /// Klucze sa wspoldzielone z zadaniem w tle, ktore czyta te same dane
+    /// bez tworzenia instancji ProfileStore.
+    fileprivate static let profilesKey = "modem.profiles.v1"
+    fileprivate static let selectedKey = "modem.selectedProfile.v1"
+
+    private var profilesKey: String { Self.profilesKey }
+    private var selectedKey: String { Self.selectedKey }
     private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -66,6 +71,25 @@ final class ProfileStore: ObservableObject {
     func select(_ profile: ModemProfile) {
         selectedProfileID = profile.id
         persist()
+    }
+
+    // MARK: - Dostep spoza SwiftUI
+
+    /// Odczytuje aktywny profil prosto z UserDefaults.
+    /// Zadanie w tle startuje bez zywej instancji ProfileStore z widokow,
+    /// wiec potrzebuje wlasnej sciezki do tych danych.
+    static func sharedSelectedProfile(defaults: UserDefaults = .standard) -> ModemProfile? {
+        guard let data = defaults.data(forKey: profilesKey),
+              let profiles = try? JSONDecoder().decode([ModemProfile].self, from: data),
+              !profiles.isEmpty
+        else { return nil }
+
+        if let raw = defaults.string(forKey: selectedKey),
+           let uuid = UUID(uuidString: raw),
+           let match = profiles.first(where: { $0.id == uuid }) {
+            return match
+        }
+        return profiles.first
     }
 
     // MARK: - Trwalosc

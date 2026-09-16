@@ -26,6 +26,11 @@ final class ModemViewModel: ObservableObject {
 
     private var profile: ModemProfile?
     private var callPollTask: Task<Void, Never>?
+    private var foregroundPollTask: Task<Void, Never>?
+
+    /// Pierwsze pobranie SMS-ow tylko zapamietuje stan - bez niego aplikacja
+    /// zaraz po instalacji powiadomilaby o kazdej wiadomosci na karcie SIM.
+    private var didLoadMessagesOnce = false
 
     func setProfile(_ profile: ModemProfile?) {
         // Zmiana profilu czysci stan, zeby nie pokazywac danych z poprzedniego modemu.
@@ -38,6 +43,8 @@ final class ModemViewModel: ObservableObject {
             isReachable = false
             errorMessage = nil
             infoMessage = nil
+            didLoadMessagesOnce = false
+            NotificationService.shared.resetForProfileChange()
         }
         self.profile = profile
     }
@@ -120,6 +127,16 @@ final class ModemViewModel: ObservableObject {
             messages = result.messages.sorted { $0.index > $1.index }
             isReachable = true
             errorMessage = nil
+
+            // Powiadamiamy tylko przy pelnej liscie: zawezony filtr ukrywa
+            // czesc wiadomosci, co wygladaloby jak nowe przy powrocie do "ALL".
+            if filter == "ALL" {
+                await NotificationService.shared.processNewMessages(
+                    result.messages,
+                    isFirstLoad: !didLoadMessagesOnce
+                )
+                didLoadMessagesOnce = true
+            }
         } catch {
             report(error)
         }
@@ -192,8 +209,10 @@ final class ModemViewModel: ObservableObject {
     func refreshCallStatus() async {
         guard let profile = requireProfile() else { return }
         do {
-            callStatus = try await ModemAPI.shared.fetchCallStatus(profile: profile)
+            let fresh = try await ModemAPI.shared.fetchCallStatus(profile: profile)
+            callStatus = fresh
             isReachable = true
+            await NotificationService.shared.processCallStatus(fresh)
         } catch {
             report(error)
         }
@@ -255,5 +274,40 @@ final class ModemViewModel: ObservableObject {
     func stopCallPolling() {
         callPollTask?.cancel()
         callPollTask = nil
+    }
+
+    // MARK: - Nasluch na pierwszym planie
+
+    /// Regularnie sprawdza modem, dopoki aplikacja jest na ekranie.
+    /// To jedyny sposob, by wykryc polaczenie przychodzace - API nie ma
+    /// zadnego mechanizmu powiadamiania, wiec trzeba je odpytywac.
+    func startForegroundPolling() {
+        stopForegroundPolling()
+        guard profile != nil else { return }
+
+        foregroundPollTask = Task { [weak self] in
+            var tick = 0
+            while !Task.isCancelled {
+                guard let self else { return }
+
+                // Polaczenie trzeba wychwycic zanim dzwoniacy sie rozlaczy,
+                // wiec status sprawdzamy co 5 sekund.
+                await self.refreshCallStatus()
+
+                // Lista SMS wymaga serii komend AT i obciaza modem bardziej,
+                // dlatego odpytujemy ja co szosty obieg, czyli mniej wiecej co 30 s.
+                if tick % 6 == 0, !Task.isCancelled {
+                    await self.refreshSMS()
+                }
+
+                tick += 1
+                try? await Task.sleep(nanoseconds: 5_000_000_000)
+            }
+        }
+    }
+
+    func stopForegroundPolling() {
+        foregroundPollTask?.cancel()
+        foregroundPollTask = nil
     }
 }
